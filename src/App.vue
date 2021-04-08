@@ -18,7 +18,7 @@ import shortText from '@/components/shortText.vue'
 import longText from '@/components/longText.vue'
 export default {
   name: 'ibiza-answer-elements',
-  data () {
+  /*data () {
     return {
       element: {
         index: 56,
@@ -36,6 +36,9 @@ export default {
         value: 'Este texto es para el textarea\ny otro renglon'
       }
     }
+  },*/
+  props:{
+    element: Object
   },
   components: {
     selection,
@@ -47,8 +50,7 @@ export default {
   },
   methods: {
     change: function (val, index) {
-      console.log(val)
-      console.log(index)
+      this.$emit('change',val,index)
     }
   }
 }
