@@ -1,7 +1,6 @@
 {
   "name": "ibizabmb-vue-answer-elements",
   "version": "0.1.0",
-  "private": true,
   "main": "lib/ibizabmbVueAnswerElements.umd.min.js",
   "scripts": {
     "serve": "vue-cli-service serve",
