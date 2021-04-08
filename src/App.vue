@@ -4,6 +4,8 @@
      <radio v-if="element.type == 'radio'" :element="element" @change="change"/>
      <radio-comment v-if="element.type == 'radio-comment'" :element="element" @change="change"/>
      <checkboxes v-if="element.type == 'checkbox'" :element="element" @change="change"/>
+     <short-text v-if="element.type == 'text'" :element="element" @change="change"/>
+     <long-text v-if="element.type == 'longText'" :element="element" @change="change"/>
   </div>
 </template>
 
@@ -12,13 +14,15 @@ import selection from '@/components/select.vue'
 import radio from '@/components/radio.vue'
 import radioComment from '@/components/radio_comment.vue'
 import checkboxes from '@/components/checkbox.vue'
+import shortText from '@/components/shortText.vue'
+import longText from '@/components/longText.vue'
 export default {
   name: 'ibiza-answer-elements',
   data () {
     return {
       element: {
         index: 56,
-        type: 'checkbox',
+        type: 'longText',
         fields: [
           {
             text: 'campo1',
@@ -28,7 +32,8 @@ export default {
             text: 'campo2',
             value: 'valor2'
           }
-        ]
+        ],
+        value: 'Este texto es para el textarea\ny otro renglon'
       }
     }
   },
@@ -36,7 +41,9 @@ export default {
     selection,
     radio,
     radioComment,
-    checkboxes
+    checkboxes,
+    shortText,
+    longText
   },
   methods: {
     change: function (val, index) {
