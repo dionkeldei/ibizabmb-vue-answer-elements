@@ -15,10 +15,6 @@ export default {
   name: 'ibizaSelectElement',
   data () {
     return {
-      value: {
-        value: 0,
-        text: null
-      }
     }
   },
   props: {
@@ -27,11 +23,16 @@ export default {
   methods: {
   },
   computed: {
-    getValue: function () {
+    value: {
+      get: function () {
         if(this.element.value != undefined){
           return this.element.value
         }
         return {value: null,text: ''}
+      },
+      set: function (val) {
+        this.$emit('change',val,this.element.index)
+      }
     },
     innerValue: function () {
       return this.value.value
@@ -40,16 +41,7 @@ export default {
       return this.value.text
     }
   },
-  mounted () {
-    this.value = this.getValue
-  },
   watch: {
-    innerValue: function () {
-      this.$emit('change',this.value,this.element.index)
-    },
-    innerText: function () {
-      this.$emit('change',this.value,this.element.index)
-    }
   }
 }
 </script>

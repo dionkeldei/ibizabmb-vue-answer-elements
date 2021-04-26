@@ -9,7 +9,6 @@ export default {
   name: 'shortText',
   data () {
     return {
-      value: ''
     }
   },
   props: {
@@ -18,20 +17,19 @@ export default {
   methods: {
   },
   computed: {
-    getValue: function () {
+    value: {
+      get: function () {
         if(this.element.value != undefined){
           return this.element.value
         }
         return ''
+      },
+      set: function (val) {
+        this.$emit('change',val,this.element.index)
+      }
     }
-  },
-  mounted() {
-    this.value = this.getValue
   },
   watch: {
-    value: function (val) {
-      this.$emit('change',val,this.element.index)
-    }
   }
 }
 </script>
